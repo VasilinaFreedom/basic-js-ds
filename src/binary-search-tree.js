@@ -50,15 +50,21 @@ class BinarySearchTree {
     }
   
   find(data) {
-    let node = this.data;
-    while(node!=null){
-      if(node.data===data){return node.data;}
-     else if(data>node.data){
-      node=node.right;
-    } else{
-      node=node.left;
-    }
-  } return null;
+  //   let node = this.data;
+  //   while(node!=null){
+  //     if(node.data===data){return node.data;}
+  //    else if(data>node.data){
+  //     node=node.right;
+  //   } else{
+  //     node=node.left;
+  //   }
+  // } return null;
+  return searchElem(this.rootTree, data);
+
+      function searchElem(node, data) {
+        if (!node) {return null;}
+        return data < node.data ? searchElem(node.left, data) : searchElem(node.right, data);
+      }
 }
 
   remove(data) {
